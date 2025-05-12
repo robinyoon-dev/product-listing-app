@@ -1,10 +1,19 @@
-import ProductCard from "@/components/products/ProductCard";
+'use server';
+
+import { Suspense } from "react";
+import Products from "./Products";
+
 
 const ProductsPage = () => {
+
   return (
     <div>
       <h1>Products</h1>
-      <ProductCard id={""} name={""} price={0} description={""} imageUrl={""} />
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Products />
+      </Suspense>
+
     </div>
   );
 };

@@ -1,0 +1,18 @@
+### Git 커밋 메시지 컨벤션 ###
+
+# ▼ <type>: <description> 작성
+
+# ▼ obtional <body> 작성
+
+# ▼ obtional <footer> 작성
+
+
+
+##################
+# feat: 새로운 기능 추가 
+# fix : 버그 수정
+# refactor: 코드 리팩토링
+# docs: 문서 수정(README, API 명세서 등)
+# test: 테스트 코드 추가 또는 수정
+# chore: 패키지 매니저 수정, 라이브러리 추가/교체, 설정 변경 등 기타 작업
+# style: 코드 의미에 영향을 주지 않는 변경(포맷팅, 세미콜론 누락 등)
