@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ProductCard from "@/components/products/ProductCard";
 import { getRandomViewMode } from "@/lib/utils/products";
+import { DUMMY_PRODUCTS_DATA } from "@/lib/dummy/products";
 
 const Products = () => {
     const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
@@ -19,7 +20,17 @@ const Products = () => {
     return (
         <main className={CONTAINER_STYLE}>
             <p>View Mode: {viewMode}</p>
-            <ProductCard id={""} name={""} price={0} description={""} imageUrl={""} />
+            {DUMMY_PRODUCTS_DATA.map((product) => (
+                <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    description={product.description}
+                    thumbnail={product.thumbnail}
+                    rating={product.rating}
+                    reviews={product.reviews.length}
+                />
+            ))}
         </main>
     )
 }
