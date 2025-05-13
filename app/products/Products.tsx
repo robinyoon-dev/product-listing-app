@@ -1,26 +1,21 @@
-'use client';
-import { useEffect } from "react";
-import { useState } from "react";
+'use server'
+
 import ProductCard from "@/components/products/ProductCard";
-import { getRandomViewMode } from "@/lib/utils/products";
+import ProductsContainer from "@/components/products/ProductsContainer";
 import { DUMMY_PRODUCTS_DATA } from "@/lib/dummy/products";
 
-const Products = () => {
-    const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+const Products = ({ select, sortBy, order, page }: { select: string, sortBy: string, order: string, page: number }) => {
 
-    const GRID_STYLE = 'grid grid-cols-4 gap-4';
-    const LIST_STYLE = 'flex flex-col gap-4';
-    const CONTAINER_STYLE = viewMode === 'list' ? LIST_STYLE : GRID_STYLE;
+    let productsData;
 
-    useEffect(() => {
-        const mode = getRandomViewMode();
-        setViewMode(mode);
-    }, []);
+    //TODO: Fetch products data 
+    productsData = DUMMY_PRODUCTS_DATA;
+
+
 
     return (
-        <main className={CONTAINER_STYLE}>
-            <p>View Mode: {viewMode}</p>
-            {DUMMY_PRODUCTS_DATA.map((product) => (
+        <ProductsContainer>
+            {productsData.map((product) => (
                 <ProductCard
                     key={product.id}
                     id={product.id}
@@ -31,7 +26,7 @@ const Products = () => {
                     reviews={product.reviews.length}
                 />
             ))}
-        </main>
+        </ProductsContainer>
     )
 }
 
