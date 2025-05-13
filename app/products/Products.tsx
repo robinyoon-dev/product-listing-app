@@ -2,25 +2,29 @@
 
 import ProductCard from "@/components/products/ProductCard";
 import ProductsContainer from "@/components/products/ProductsContainer";
-import { getProducts } from "../api/products.api";
+import { getProducts, getSearchedProducts } from "../api/products.api";
 import { PRODUCT } from "@/lib/types/products";
 import PaginationWrapper from "@/components/products/PaginationWrapper";
 
 
-const Products = async ({ select, sortBy, order, page }: { select: string, sortBy: string, order: string, page: number }) => {
+const Products = async ({ select, sortBy, order, page, query }: { select: string, sortBy: string, order: string, page: number, query: string }) => {
 
     let productsData;
     let totalElements;
 
-    const data = await getProducts(page);
-    productsData = data.products;
-    totalElements = data.total;
+    if(query !== ''){
+        const data = await getSearchedProducts(query, page);
+        productsData = data.products;
+        totalElements = data.total;
+    }else{
+        const data = await getProducts(page);
+        productsData = data.products;
+        totalElements = data.total;
+    }
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <p>Total Products: {data.total}</p>
-            <p>skip: {data.skip}</p>
-            <p>limit: {data.limit}</p>
+            <p>Total Products: {totalElements}</p>
 
             <ProductsContainer>
                 {productsData.map((product: PRODUCT) => (
