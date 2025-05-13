@@ -2,14 +2,12 @@
 
 import ProductCard from "@/components/products/ProductCard";
 import ProductsContainer from "@/components/products/ProductsContainer";
-import { DUMMY_PRODUCTS_DATA } from "@/lib/dummy/products";
 import { getProducts } from "../api/products.api";
 import { PRODUCT } from "@/lib/types/products";
 
 const Products = async({ select, sortBy, order, page }: { select: string, sortBy: string, order: string, page: number }) => {
 
     let productsData;
-
 
     const data = await getProducts();
     productsData = data.products;
