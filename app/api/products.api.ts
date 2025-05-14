@@ -2,25 +2,12 @@
 
 import { LIMIT } from "@/lib/definition/products";
 
-export const getProducts = async (page: number, sortBy: string, order: string) => {
+export const getProducts = async (page: number, sortBy: string, order: string, query: string) => {
     const skip = (page - 1) * LIMIT;
     const searchParams = `limit=${LIMIT}&skip=${skip}&sortBy=${sortBy}&order=${order}`;
-    const res = await fetch(`https://dummyjson.com/products?${searchParams}`);
-    const data = res.json();
-    return data;
-}
 
-/**
- * 검색 키워드를 받아서 검색 결과를 반환합니다.
- * @param search 검색 키워드
- * @returns 검색 결과
- * @see https://dummyjson.com/docs/products#products-search
- */
-export const getSearchedProducts = async (search: string, page: number, sortBy: string, order: string) => {
-    const skip = (page - 1) * LIMIT;
-    const searchParams = `limit=${LIMIT}&skip=${skip}&sortBy=${sortBy}&order=${order}`;
-    //궁금증: search API 사용시에 페이지네이션 불가능한가?
-    const res = await fetch(`https://dummyjson.com/products/search?q=${search}&${searchParams}`);
+    const URL = query !== '' ? `/search?q=${query}&${searchParams}` : `?${searchParams}`;
+    const res = await fetch(`https://dummyjson.com/products${URL}`);
     const data = res.json();
     return data;
 }
