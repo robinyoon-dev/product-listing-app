@@ -2,9 +2,9 @@
 
 import { LIMIT } from "@/lib/definition/products";
 
-export const getProducts = async (page: number) => {
+export const getProducts = async (page: number, sortBy: string, order: string) => {
     const skip = (page - 1) * LIMIT;
-    const searchParams = `limit=${LIMIT}&skip=${skip}`;
+    const searchParams = `limit=${LIMIT}&skip=${skip}&sortBy=${sortBy}&order=${order}`;
     const res = await fetch(`https://dummyjson.com/products?${searchParams}`);
     const data = res.json();
     return data;
@@ -16,9 +16,9 @@ export const getProducts = async (page: number) => {
  * @returns 검색 결과
  * @see https://dummyjson.com/docs/products#products-search
  */
-export const getSearchedProducts = async (search: string, page: number) => {
+export const getSearchedProducts = async (search: string, page: number, sortBy: string, order: string) => {
     const skip = (page - 1) * LIMIT;
-    const searchParams = `limit=${LIMIT}&skip=${skip}`;
+    const searchParams = `limit=${LIMIT}&skip=${skip}&sortBy=${sortBy}&order=${order}`;
     //궁금증: search API 사용시에 페이지네이션 불가능한가?
     const res = await fetch(`https://dummyjson.com/products/search?q=${search}&${searchParams}`);
     const data = res.json();

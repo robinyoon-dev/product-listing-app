@@ -13,11 +13,11 @@ const Products = async ({ select, sortBy, order, page, query }: { select: string
     let totalElements;
 
     if(query !== ''){
-        const data = await getSearchedProducts(query, page);
+        const data = await getSearchedProducts(query, page, sortBy, order);
         productsData = data.products;
         totalElements = data.total;
     }else{
-        const data = await getProducts(page);
+        const data = await getProducts(page,sortBy, order);
         productsData = data.products;
         totalElements = data.total;
     }
