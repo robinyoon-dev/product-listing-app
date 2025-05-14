@@ -17,13 +17,12 @@ const ProductsContainer = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     return (
-        <div className="flex flex-col gap-4">
-            <p>View Mode: {viewMode}</p>
-            <main className={CONTAINER_STYLE}>
 
-                {children}
-            </main>
-        </div>
+        <main className={`${CONTAINER_STYLE}`}>
+
+            {children}
+        </main>
+
     )
 }
 

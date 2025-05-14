@@ -7,17 +7,17 @@ import { PRODUCT } from "@/lib/types/products";
 import PaginationWrapper from "@/components/products/PaginationWrapper";
 
 
-const Products = async ({ sortBy, order, page, query }: {  sortBy: string, order: string, page: number, query: string }) => {
+const Products = async ({ sortBy, order, page, query }: { sortBy: string, order: string, page: number, query: string }) => {
 
     let productsData;
     let totalElements;
 
-    if(query !== ''){
+    if (query !== '') {
         const data = await getSearchedProducts(query, page, sortBy, order);
         productsData = data.products;
         totalElements = data.total;
-    }else{
-        const data = await getProducts(page,sortBy, order);
+    } else {
+        const data = await getProducts(page, sortBy, order);
         productsData = data.products;
         totalElements = data.total;
     }
@@ -32,17 +32,18 @@ const Products = async ({ sortBy, order, page, query }: {  sortBy: string, order
                 <ProductsContainer>
                     {productsData.map((product: PRODUCT) => (
                         <ProductCard
-                        key={product.id}
-                        id={product.id}
-                        title={product.title}
-                        description={product.description}
-                        thumbnail={product.thumbnail}
-                        rating={product.rating}
-                        reviews={product.reviews.length}
-                    />
+                            key={product.id}
+                            id={product.id}
+                            title={product.title}
+                            description={product.description}
+                            thumbnail={product.thumbnail}
+                            rating={product.rating}
+                            reviews={product.reviews.length}
+                        />
                     ))}
                 </ProductsContainer>
             )}
+
             <PaginationWrapper totalElements={totalElements} />
         </div>
     )
