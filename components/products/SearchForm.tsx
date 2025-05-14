@@ -38,7 +38,6 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
     } else {
       const params = new URLSearchParams(searchParams.toString());
       params.set('query', searchValue);
-      params.set('page', '1'); // Reset to first page when searching
       params.set('sort_by', SORT_BY);
       params.set('order', ORDER);
 
