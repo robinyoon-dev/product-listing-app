@@ -26,23 +26,17 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    
+
     const SORT_BY = 'rating';
     const ORDER = sort;
 
-    if (searchValue.trim() === "") {
-      if (sort === initialOrder) {
-        // 검색어도 바뀌지 않고 정렬도 바뀌지 않은 경우 검색어를 입력하라는 안내 alert 표시
-        alert("검색어를 입력하세요.");
-      }
-    } else {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set('query', searchValue);
-      params.set('sort_by', SORT_BY);
-      params.set('order', ORDER);
 
-      router.push(`/products?${params.toString()}`);
-    }
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('query', searchValue.trim());
+    params.set('sort_by', SORT_BY);
+    params.set('order', ORDER);
+
+    router.push(`/products?${params.toString()}`);
 
 
   };
