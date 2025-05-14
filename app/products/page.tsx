@@ -17,7 +17,6 @@ const ProductsPage = ({ searchParams }: {
   const page = Number(searchParams?.page) || 1;
   const sort_by = searchParams?.sort_by || '';
   const order = searchParams?.order || 'desc'; // desc, asc
-  const select = searchParams?.select || '';
   const query = searchParams?.query || '';
 
   return (
@@ -27,7 +26,7 @@ const ProductsPage = ({ searchParams }: {
       <SearchForm initialQuery={query} initialOrder={order}/>
 
       <Suspense key={page} fallback={<div>Loading...</div>}>
-        <Products select={select} sortBy={sort_by} order={order} page={page} query={query} />
+        <Products sortBy={sort_by} order={order} page={page} query={query} />
       </Suspense>
 
     </div>
