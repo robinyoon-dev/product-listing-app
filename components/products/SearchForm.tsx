@@ -43,10 +43,12 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
 
       router.push(`/products?${params.toString()}`);
     }
+
+
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 flex gap-2 w-full bg-gray-100 p-4 rounded-lg">
+    <form onSubmit={handleSubmit} className="mb-4 flex flex-row justify-between items-center gap-2 w-full bg-gray-100 p-4 rounded-lg">
       <input
         type="text"
         value={searchValue}
@@ -55,17 +57,13 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
         className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
-      <div className="flex items-center gap-2">
-        {sort === "desc" ? <p>내림차순</p> : <p>오름차순</p>}
-      </div>
-
       <Select defaultValue={initialOrder} onValueChange={setSort}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="별점" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="desc">내림차순</SelectItem>
-          <SelectItem value="asc">오름차순</SelectItem>
+          <SelectItem value="desc">별점 내림차순</SelectItem>
+          <SelectItem value="asc">별점 오름차순</SelectItem>
         </SelectContent>
       </Select>
 

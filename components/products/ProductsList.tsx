@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../common/loading/LoadingSpinner";
 import { useInView } from "react-intersection-observer";
-import { PRODUCT } from "@/lib/types/products";
+import { PRODUCT, ViewMode } from "@/lib/types/products";
 import { MemoizedProductCard } from "./ProductCard";
 import ProductsContainer from "./ProductsContainer";
 import { INITIAL_PAGE } from "@/lib/definition/products";
@@ -24,6 +24,7 @@ const ProductsList = (
     const [page, setPage] = useState(INITIAL_PAGE);
     const [isLastPage, setIsLastPage] = useState(false);
     const [ref, inView] = useInView();
+    const [viewMode, setViewMode] = useState<ViewMode>('grid');
 
 
     const loadMoreProducts = async () => {
@@ -40,6 +41,12 @@ const ProductsList = (
         }
     }
 
+    // MARK: 잠시 랜덤 뷰 모드 사용 중지
+    // useEffect(() => {
+    //     const mode = getRandomViewMode();
+    //     setViewMode(mode);
+    // }, []);
+
 
     useEffect(() => {
         if (inView) {
@@ -48,15 +55,16 @@ const ProductsList = (
     }, [inView]);
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center">
 
             {totalElements === 0 && <p>일치하는 결과가 없습니다.</p>}
 
 
             {totalElements > 0 && (
-                <ProductsContainer>
+                <ProductsContainer viewMode={viewMode}>
                     {products.map((product: PRODUCT) => (
                         <MemoizedProductCard
+                            type={viewMode}
                             key={product.id}
                             id={product.id}
                             title={product.title}

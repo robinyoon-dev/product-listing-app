@@ -1,15 +1,10 @@
 'use client'
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { memo } from "react";
 
+import { memo } from "react";
+import { ViewMode } from "@/lib/types/products";
+import GridCard from "./GridCard";
+import ListCard from "./ListCard";
 
 interface ProductCardProps {
     id: number;
@@ -18,31 +13,15 @@ interface ProductCardProps {
     thumbnail: string; //썸네일 이미지 url
     rating: number; //평점
     reviews: number; //리뷰 수
+    type: ViewMode; //뷰 모드
 }
 
-const ProductCard = ({ id, title, description, thumbnail, rating, reviews }: ProductCardProps) => {
+const ProductCard = ({ id, type, title, description, thumbnail, rating, reviews }: ProductCardProps) => {
+    if (type === 'grid') {
+        return <GridCard id={id} title={title} description={description} thumbnail={thumbnail} rating={rating} reviews={reviews} />
+    }
     return (
-        <Card>
-            <CardHeader>
-                <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
-            </CardHeader>
-            <CardContent>
-                <div className="flex flex-col gap-2">
-                    <CardTitle>{title}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
-                </div>
-
-
-            </CardContent>
-            <CardFooter>
-                <div className="w-full flex flex-row justify-between">
-                    <p>{`${rating} / 5`}</p>
-                    <p>{`${reviews} reviews`}</p>
-                </div>
-
-            </CardFooter>
-        </Card>
-
+        <ListCard id={id} title={title} description={description} thumbnail={thumbnail} rating={rating} reviews={reviews} />
     );
 };
 

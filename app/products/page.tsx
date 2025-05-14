@@ -17,7 +17,7 @@ const ProductsPage = ({ searchParams }: {
 
 
   return (
-    <div className="w-full flex flex-col items-center justify-center px-5">
+    <div className="w-full max-w-screen-lg flex flex-col items-center justify-center px-5">
       <h1>Products</h1>
 
       <SearchForm initialQuery={query} initialOrder={order} />

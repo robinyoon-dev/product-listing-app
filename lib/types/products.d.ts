@@ -1,3 +1,5 @@
+export type ViewMode = 'list' | 'grid';
+
 type Review = {
     rating: number;
     comment: string;
