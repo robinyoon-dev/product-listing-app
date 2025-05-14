@@ -7,7 +7,7 @@ import { PRODUCT } from "@/lib/types/products";
 import PaginationWrapper from "@/components/products/PaginationWrapper";
 
 
-const Products = async ({ select, sortBy, order, page, query }: { select: string, sortBy: string, order: string, page: number, query: string }) => {
+const Products = async ({ sortBy, order, page, query }: {  sortBy: string, order: string, page: number, query: string }) => {
 
     let productsData;
     let totalElements;
@@ -26,9 +26,12 @@ const Products = async ({ select, sortBy, order, page, query }: { select: string
         <div className="flex flex-col items-center justify-center">
             <p>Total Products: {totalElements}</p>
 
-            <ProductsContainer>
-                {productsData.map((product: PRODUCT) => (
-                    <ProductCard
+            {totalElements === 0 && <p>일치하는 결과가 없습니다.</p>}
+
+            {totalElements > 0 && (
+                <ProductsContainer>
+                    {productsData.map((product: PRODUCT) => (
+                        <ProductCard
                         key={product.id}
                         id={product.id}
                         title={product.title}
@@ -37,8 +40,9 @@ const Products = async ({ select, sortBy, order, page, query }: { select: string
                         rating={product.rating}
                         reviews={product.reviews.length}
                     />
-                ))}
-            </ProductsContainer>
+                    ))}
+                </ProductsContainer>
+            )}
             <PaginationWrapper totalElements={totalElements} />
         </div>
     )

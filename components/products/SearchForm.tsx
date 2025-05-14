@@ -27,7 +27,6 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
     e.preventDefault();
 
     
-
     const SORT_BY = 'rating';
     const ORDER = sort;
 
