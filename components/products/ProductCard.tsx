@@ -1,4 +1,5 @@
-import Image from "next/image";
+'use client'
+
 import {
     Card,
     CardContent,
@@ -7,6 +8,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { memo } from "react";
 
 
 interface ProductCardProps {
@@ -44,4 +46,4 @@ const ProductCard = ({ id, title, description, thumbnail, rating, reviews }: Pro
     );
 };
 
-export default ProductCard;
+export const MemoizedProductCard = memo(ProductCard);
