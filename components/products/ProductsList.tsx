@@ -24,7 +24,7 @@ const ProductsList = (
     const [page, setPage] = useState(INITIAL_PAGE);
     const [isLastPage, setIsLastPage] = useState(false);
     const [ref, inView] = useInView();
-    const [viewMode, setViewMode] = useState<ViewMode>('grid');
+    const [viewMode, setViewMode] = useState<ViewMode>('list');
 
 
     const loadMoreProducts = async () => {

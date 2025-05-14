@@ -2,11 +2,10 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-
+import StarRating from "@/components/ui/star-rating"
 
 const GridCard = ({ id, thumbnail, title, description, rating, reviews }: { id: number, thumbnail: string, title: string, description: string, rating: number, reviews: number }) => {
     return (
@@ -19,8 +18,12 @@ const GridCard = ({ id, thumbnail, title, description, rating, reviews }: { id: 
                     <CardTitle>{title}</CardTitle>
                     <CardDescription>{description}</CardDescription>
                 </div>
-                <div className="w-full flex flex-row justify-between">
-                    <p>{`${rating} / 5`}</p>
+
+                <div className="w-full flex flex-col justify-center items-center">
+                    <div className="flex items-center gap-2">
+                        <StarRating rating={rating} />
+                        <span className="text-sm text-gray-600">{rating}</span>
+                    </div>
                     <p>{`${reviews} reviews`}</p>
                 </div>
             </CardContent>
