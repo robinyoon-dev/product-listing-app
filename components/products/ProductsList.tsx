@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../common/loading/LoadingSpinner";
 import { useInView } from "react-intersection-observer";
 import { PRODUCT } from "@/lib/types/products";
-import ProductCard from "./ProductCard";
+import { MemoizedProductCard } from "./ProductCard";
 import ProductsContainer from "./ProductsContainer";
 import { INITIAL_PAGE } from "@/lib/definition/products";
 import { getProducts } from "@/app/api/products.api";
@@ -56,7 +56,7 @@ const ProductsList = (
             {totalElements > 0 && (
                 <ProductsContainer>
                     {products.map((product: PRODUCT) => (
-                        <ProductCard
+                        <MemoizedProductCard
                             key={product.id}
                             id={product.id}
                             title={product.title}
