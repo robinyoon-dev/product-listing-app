@@ -6,6 +6,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import StarRating from "../ui/star-rating";
 
 
 const ListCard = ({ id, thumbnail, title, description, rating, reviews }: { id: number, thumbnail: string, title: string, description: string, rating: number, reviews: number }) => {
@@ -25,7 +26,10 @@ const ListCard = ({ id, thumbnail, title, description, rating, reviews }: { id: 
                 </div>
 
                 <div className="w-full flex flex-row justify-between">
-                    <p>{`${rating} / 5`}</p>
+                    <div className="flex items-center gap-2">
+                        <StarRating rating={rating} />
+                        <span className="text-sm text-gray-600">{rating}</span>
+                    </div>
                     <p>{`${reviews} reviews`}</p>
                 </div>
             </CardContent>
