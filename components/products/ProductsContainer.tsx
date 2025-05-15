@@ -8,7 +8,7 @@ const ProductsContainer = ({ children, viewMode }: { children: React.ReactNode, 
     const CONTAINER_STYLE = viewMode === 'list' ? LIST_STYLE : GRID_STYLE;
 
     return (
-        <main className={`${CONTAINER_STYLE}`}>
+        <main className={`${CONTAINER_STYLE} px-5`}>
             {children}
         </main>
     )

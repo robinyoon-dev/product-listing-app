@@ -11,8 +11,8 @@ import Image from "next/image";
 
 const ListCard = ({ id, thumbnail, title, description, rating, reviews }: { id: number, thumbnail: string, title: string, description: string, rating: number, reviews: number }) => {
     return (
-        <Card className="flex flex-row gap-4 p-3">
-            <CardHeader className="relative w-[200px] h-[200px]">
+        <Card className="w-full flex flex-row justify-center items-center gap-4 p-3">
+            <div className="flex-none relative w-[200px] h-[200px]">
                 <Image 
                     src={thumbnail} 
                     alt={title} 
@@ -20,22 +20,22 @@ const ListCard = ({ id, thumbnail, title, description, rating, reviews }: { id: 
                     className="object-cover rounded-md"
                     sizes="(max-width: 768px) 100vw, 200px"
                 />
-            </CardHeader>
+            </div>
 
-            <CardContent className="flex flex-col justify-between items-start gap-2 w-full">
+            <div className="flex-1 flex flex-col justify-between items-start w-full h-[200px] p-3">
                 <div className="flex flex-col gap-2">
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
+                    <CardDescription className="line-clamp-4">{description}</CardDescription>
                 </div>
 
-                <div className="w-full flex flex-row justify-between">
+                <div className="w-full flex flex-col sm:flex-row justify-between gap-2">
                     <div className="flex items-center gap-2">
                         <StarRating rating={rating} />
                         <span className="text-sm text-gray-600">{rating}</span>
                     </div>
-                    <p>{`${reviews} reviews`}</p>
+                    <p className="text-sm text-gray-600">{`${reviews} reviews`}</p>
                 </div>
-            </CardContent>
+            </div>
         </Card>
     )
 }

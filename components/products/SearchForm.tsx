@@ -42,7 +42,7 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 flex flex-row justify-between items-center gap-2 w-full bg-gray-100 p-4 rounded-lg">
+    <form onSubmit={handleSubmit} className="mb-4 flex flex-col lg:flex-row justify-between items-center gap-2 w-full bg-gray-100 p-4 rounded-lg">
       <input
         type="text"
         value={searchValue}
@@ -51,22 +51,25 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
         className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
-      <Select defaultValue={initialOrder} onValueChange={setSort}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="별점" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="desc">별점 내림차순</SelectItem>
-          <SelectItem value="asc">별점 오름차순</SelectItem>
-        </SelectContent>
-      </Select>
 
-      <button
-        type="submit"
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        결과 보기
-      </button>
+      <div className="flex flex-row gap-2">
+        <Select defaultValue={initialOrder} onValueChange={setSort}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="별점" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="desc">별점 내림차순</SelectItem>
+            <SelectItem value="asc">별점 오름차순</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          결과 보기
+        </button>
+      </div>
     </form>
   );
 } 
