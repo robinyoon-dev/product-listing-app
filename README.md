@@ -28,7 +28,7 @@ Next.js와 shadcn/ui를 사용한 제품 목록 애플리케이션입니다.
 
 1. 저장소 클론
 ```bash
-git clone [repository-url]
+git clone https://github.com/robinyoon-dev/product-listing-app.git
 cd product-listing-app
 ```
 
