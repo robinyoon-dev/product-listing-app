@@ -1,38 +1,72 @@
-# product-listing-app (작업 진행중)
-프론트엔드 코딩 과제로 구현한 상품 리스트 페이지입니다.
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Product Listing Application
 
-## Getting Started
+Next.js와 shadcn/ui를 사용한 제품 목록 애플리케이션입니다.
 
-First, run the development server:
+## 주요 기능
 
+- 제품 목록 조회 (그리드/리스트 뷰)
+- 제품 검색
+- 별점 기준 정렬 (오름차순/내림차순)
+- 무한 스크롤
+- 반응형 디자인
+- 이미지 최적화
+
+## 기술 스택
+
+- **Framework**: Next.js 14
+- **UI Components**: shadcn/ui
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+
+## 시작하기
+
+### 필수 조건
+
+- Node.js 18.0.0 이상
+- yarn
+
+### 설치
+
+1. 저장소 클론
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [repository-url]
+cd product-listing-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 의존성 설치
+```bash
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. 개발 서버 실행
+```bash
+yarn dev
+```
 
-## Learn More
+4. 브라우저에서 `http://localhost:3000` 접속
 
-To learn more about Next.js, take a look at the following resources:
+## 프로젝트 구조
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+product-listing-app/
+├── app/
+│   ├── products/
+│   │   └── page.tsx
+│   └── layout.tsx
+├── components/
+│   ├── common/
+│   │   └── [공통으로 사용하는 컴포넌트 모음]
+│   ├── products/
+│   │   └── [products 페이지에서 사용하는 컴포넌트 모음]
+│   └── ui/
+│       └── [shadcn components]
+└──  lib/
+   ├── definition/
+   │   └── [상수 모음]
+   ├── types/
+   │   └── [타입 정의 모음]
+   └── utils/
+       └── [유틸리티 모음]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
