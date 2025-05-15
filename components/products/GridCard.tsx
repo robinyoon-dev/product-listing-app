@@ -10,14 +10,13 @@ import Image from "next/image"
 
 const GridCard = ({ id, thumbnail, title, description, rating, reviews }: { id: number, thumbnail: string, title: string, description: string, rating: number, reviews: number }) => {
     return (
-        <Card className="flex flex-col justify-between items-center">
+        <Card className="flex flex-col justify-between items-center gap-2 p-2">
 
             <Image
                 src={thumbnail}
                 alt={title}
                 width={200}
                 height={200}
-                className="object-cover rounded-md"
             />
 
             <CardContent className="flex flex-col justify-between items-start gap-2 h-full">
