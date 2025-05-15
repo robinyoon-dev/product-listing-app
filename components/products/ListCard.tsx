@@ -2,22 +2,25 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import StarRating from "../ui/star-rating";
+import Image from "next/image";
 
 
 const ListCard = ({ id, thumbnail, title, description, rating, reviews }: { id: number, thumbnail: string, title: string, description: string, rating: number, reviews: number }) => {
     return (
         <Card className="flex flex-row gap-4 p-3">
-
-
-            <CardHeader>
-                <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
+            <CardHeader className="relative w-[200px] h-[200px]">
+                <Image 
+                    src={thumbnail} 
+                    alt={title} 
+                    fill
+                    className="object-cover rounded-md"
+                    sizes="(max-width: 768px) 100vw, 200px"
+                />
             </CardHeader>
-
 
             <CardContent className="flex flex-col justify-between items-start gap-2 w-full">
                 <div className="flex flex-col gap-2">
@@ -33,11 +36,6 @@ const ListCard = ({ id, thumbnail, title, description, rating, reviews }: { id: 
                     <p>{`${reviews} reviews`}</p>
                 </div>
             </CardContent>
-
-
-
-
-
         </Card>
     )
 }

@@ -6,12 +6,19 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import StarRating from "@/components/ui/star-rating"
+import Image from "next/image"
 
 const GridCard = ({ id, thumbnail, title, description, rating, reviews }: { id: number, thumbnail: string, title: string, description: string, rating: number, reviews: number }) => {
     return (
         <Card className="flex flex-col justify-between items-center">
-            <CardHeader>
-                <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
+            <CardHeader className="relative w-full">
+                <Image 
+                    src={thumbnail} 
+                    alt={title} 
+                    width={200}
+                    height={200}
+                    className="object-cover rounded-md"
+                />
             </CardHeader>
             <CardContent className="flex flex-col justify-between items-start gap-2 h-full">
                 <div className="flex flex-col gap-2">
