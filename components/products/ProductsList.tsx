@@ -42,7 +42,6 @@ const ProductsList = (
         }
     }
 
-    //MARK: 잠시 랜덤 뷰 모드 사용 중지
     useEffect(() => {
         const mode = getRandomViewMode();
         setViewMode(mode);
