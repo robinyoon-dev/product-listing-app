@@ -8,6 +8,7 @@ import { MemoizedProductCard } from "./ProductCard";
 import ProductsContainer from "./ProductsContainer";
 import { INITIAL_PAGE } from "@/lib/definition/products";
 import { getProducts } from "@/app/api/products.api";
+import { getRandomViewMode } from "@/lib/utils/products";
 
 const ProductsList = (
     { initialProducts, totalElements, sortBy, order, query }
@@ -41,11 +42,11 @@ const ProductsList = (
         }
     }
 
-    // MARK: 잠시 랜덤 뷰 모드 사용 중지
-    // useEffect(() => {
-    //     const mode = getRandomViewMode();
-    //     setViewMode(mode);
-    // }, []);
+    //MARK: 잠시 랜덤 뷰 모드 사용 중지
+    useEffect(() => {
+        const mode = getRandomViewMode();
+        setViewMode(mode);
+    }, []);
 
 
     useEffect(() => {

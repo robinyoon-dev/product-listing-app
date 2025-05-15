@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Button } from "@/components/ui/button"
 
 
 interface SearchFormProps {
@@ -63,12 +64,12 @@ export function SearchForm({ initialQuery, initialOrder }: SearchFormProps) {
           </SelectContent>
         </Select>
 
-        <button
+        <Button
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          variant="default"
         >
           결과 보기
-        </button>
+        </Button>
       </div>
     </form>
   );
