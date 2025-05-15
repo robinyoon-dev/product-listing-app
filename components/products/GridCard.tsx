@@ -23,15 +23,15 @@ const GridCard = ({ id, thumbnail, title, description, rating, reviews }: { id: 
             <CardContent className="flex flex-col justify-between items-start gap-2 h-full">
                 <div className="flex flex-col gap-2">
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
+                    <CardDescription className="line-clamp-4 sm:line-clamp-none">{description}</CardDescription>
                 </div>
 
-                <div className="w-full flex flex-col justify-center items-center">
+                <div className="w-full flex flex-col justify-center items-center gap-2">
                     <div className="flex items-center gap-2">
                         <StarRating rating={rating} />
                         <span className="text-sm text-gray-600">{rating}</span>
                     </div>
-                    <p>{`${reviews} reviews`}</p>
+                    <p className="text-sm text-gray-600">{`${reviews} reviews`}</p>
                 </div>
             </CardContent>
         </Card>
