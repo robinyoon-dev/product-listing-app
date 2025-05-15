@@ -9,11 +9,10 @@ Next.js와 shadcn/ui를 사용한 제품 목록 애플리케이션입니다.
 - 별점 기준 정렬 (오름차순/내림차순)
 - 무한 스크롤
 - 반응형 디자인
-- 이미지 최적화
 
 ## 기술 스택
 
-- **Framework**: Next.js 14
+- **Framework**: Next.js 14 (App Router)
 - **UI Components**: shadcn/ui
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
